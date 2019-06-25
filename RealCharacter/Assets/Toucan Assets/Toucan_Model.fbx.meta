@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: f032f79d51c96ee408be26423c6da800
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: BackClaw.L
+    100002: BackClaw.L_end
+    100004: BackClaw.R
+    100006: BackClaw.R_end
+    100008: BackTalon.L
+    100010: BackTalon.R
+    100012: Chest
+    100014: Chest_end
+    100016: FrontClaw.L
+    100018: FrontClaw.L_end
+    100020: FrontClaw.R
+    100022: FrontClaw.R_end
+    100024: FrontTalon.L
+    100026: FrontTalon.R
+    100028: Head
+    100030: Hips
+    100032: IK_Joint.L
+    100034: IK_Joint.L_end
+    100036: IK_Joint.R
+    100038: IK_Joint.R_end
+    100040: IK_Target.L
+    100042: IK_Target.L_end
+    100044: IK_Target.R
+    100046: IK_Target.R_end
+    100048: Jawbone
+    100050: LowerBeak
+    100052: LowerBeak_end
+    100054: LowerLeg.L
+    100056: LowerLeg.R
+    100058: Neck
+    100060: Root_Bone
+    100062: Spine
+    100064: Tailbone1
+    100066: Tailbone2
+    100068: Tailbone3
+    100070: Tailbone3_end
+    100072: TocoToucan
+    100074: //RootNode
+    100076: ToucanRig
+    100078: UpperLeg.L
+    100080: UpperLeg.R
+    400000: BackClaw.L
+    400002: BackClaw.L_end
+    400004: BackClaw.R
+    400006: BackClaw.R_end
+    400008: BackTalon.L
+    400010: BackTalon.R
+    400012: Chest
+    400014: Chest_end
+    400016: FrontClaw.L
+    400018: FrontClaw.L_end
+    400020: FrontClaw.R
+    400022: FrontClaw.R_end
+    400024: FrontTalon.L
+    400026: FrontTalon.R
+    400028: Head
+    400030: Hips
+    400032: IK_Joint.L
+    400034: IK_Joint.L_end
+    400036: IK_Joint.R
+    400038: IK_Joint.R_end
+    400040: IK_Target.L
+    400042: IK_Target.L_end
+    400044: IK_Target.R
+    400046: IK_Target.R_end
+    400048: Jawbone
+    400050: LowerBeak
+    400052: LowerBeak_end
+    400054: LowerLeg.L
+    400056: LowerLeg.R
+    400058: Neck
+    400060: Root_Bone
+    400062: Spine
+    400064: Tailbone1
+    400066: Tailbone2
+    400068: Tailbone3
+    400070: Tailbone3_end
+    400072: TocoToucan
+    400074: //RootNode
+    400076: ToucanRig
+    400078: UpperLeg.L
+    400080: UpperLeg.R
+    2100000: TocoToucan_Material
+    4300000: TocoToucan
+    9500000: //RootNode
+    13700000: TocoToucan
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
