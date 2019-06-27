@@ -7,6 +7,10 @@ public class Webcam : MonoBehaviour
 {
     public int selectedCamera;
 
+    [SerializeField] private RectTransform frameRect = null;
+
+    [SerializeField] private UIFrame frameUI = null;
+
     private WebCamDevice[] devices;
 
     private RawImage picture;
@@ -15,10 +19,13 @@ public class Webcam : MonoBehaviour
 
     private WebCamTexture currentCamera;
 
+    private RectTransform myRect;
+
     private void Start()
     {
         picture = GetComponent<RawImage>();
         arf = GetComponent<AspectRatioFitter>();
+        myRect = GetComponent<RectTransform>();
 
         devices = WebCamTexture.devices;
 
@@ -29,7 +36,7 @@ public class Webcam : MonoBehaviour
 
     private void Update()
     {
-        if (currentCamera.width < 100)
+        while (currentCamera.width < 100)
         {
             Debug.Log("Waiting for accurate picture information...");
             return;
@@ -37,6 +44,8 @@ public class Webcam : MonoBehaviour
 
         float videoRatio = (float)currentCamera.width / (float)currentCamera.height;
         arf.aspectRatio = videoRatio;
+
+        frameRect.sizeDelta = new Vector2(myRect.rect.width + frameUI.Size, myRect.rect.height + frameUI.Size);
     }
 
     private void PrintCameras()
