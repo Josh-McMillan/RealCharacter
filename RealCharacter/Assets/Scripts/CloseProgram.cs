@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class CloseProgram : MonoBehaviour
 {
-    private void Update()
+    public void OnClick()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Quitting application");
-            Application.Quit();
-        }
+        Debug.Log("Quitting application");
+        Application.Quit();
     }
 }
