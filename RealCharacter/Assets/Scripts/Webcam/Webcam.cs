@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class Webcam : MonoBehaviour
 {
-    public int selectedCamera;
+    private int selectedCamera = 0;
 
-    private WebCamDevice[] devices;
+    private WebCamDevice[] devices = null;
 
-    private RawImage picture;
+    private RawImage picture = null;
 
-    private AspectRatioFitter arf;
+    private AspectRatioFitter arf = null;
 
-    private WebCamTexture currentCamera;
+    private WebCamTexture currentCamera = null;
+
+    [SerializeField] private Dropdown cameraSelection = null;
 
     private void Start()
     {
@@ -22,14 +24,14 @@ public class Webcam : MonoBehaviour
 
         devices = WebCamTexture.devices;
 
-        PrintCameras();
+        LoadCameras();
 
         SetCamera(selectedCamera);
     }
 
     private void Update()
     {
-        if (currentCamera.width < 100)
+        while (currentCamera.width < 100)
         {
             Debug.Log("Waiting for accurate picture information...");
             return;
@@ -39,24 +41,32 @@ public class Webcam : MonoBehaviour
         arf.aspectRatio = videoRatio;
     }
 
-    private void PrintCameras()
+    private void LoadCameras()
     {
+        List<string> cameraOptions = new List<string>();
+
         for (int i = 0; i < devices.Length; i++)
         {
             Debug.Log("Webcam available: " + devices[i].name);
+            cameraOptions.Add(i + " | " + devices[i].name);
         }
+
+        cameraSelection.AddOptions(cameraOptions);
     }
 
-    private void SetCamera(int cameraIndex)
+    public void SetCamera(int cameraIndex)
     {
-        if (currentCamera != null && currentCamera.isPlaying)
+        if (cameraIndex <= devices.Length)
         {
-            currentCamera.Stop();
+            if (currentCamera != null && currentCamera.isPlaying)
+            {
+                currentCamera.Stop();
+            }
+
+            currentCamera = new WebCamTexture(devices[cameraIndex].name);
+            picture.material.mainTexture = currentCamera;
+
+            currentCamera.Play();
         }
-
-        currentCamera = new WebCamTexture(devices[cameraIndex].name);
-        picture.material.mainTexture = currentCamera;
-
-        currentCamera.Play();
     }
 }
