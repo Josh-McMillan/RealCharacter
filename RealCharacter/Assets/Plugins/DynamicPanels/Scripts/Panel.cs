@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+#pragma warning disable
+
 namespace DynamicPanels
 {
 	[DisallowMultipleComponent]
@@ -795,3 +797,5 @@ namespace DynamicPanels
 		#endregion
 	}
 }
+
+#pragma warning restore
