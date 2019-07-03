@@ -115,7 +115,8 @@ namespace MidiJack
 
         #region Editor Support
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
+#endif
 
         // Update timer
         const float _updateInterval = 1.0f / 30;
@@ -124,7 +125,8 @@ namespace MidiJack
         bool CheckUpdateInterval()
         {
             var current = Time.realtimeSinceStartup;
-            if (current - _lastUpdateTime > _updateInterval || current < _lastUpdateTime) {
+            if (current - _lastUpdateTime > _updateInterval || current < _lastUpdateTime)
+            {
                 _lastUpdateTime = current;
                 return true;
             }
@@ -134,8 +136,10 @@ namespace MidiJack
         // Total message count
         int _totalMessageCount;
 
-        public int TotalMessageCount {
-            get {
+        public int TotalMessageCount
+        {
+            get
+            {
                 UpdateIfNeeded();
                 return _totalMessageCount;
             }
@@ -144,11 +148,10 @@ namespace MidiJack
         // Message history
         Queue<MidiMessage> _messageHistory;
 
-        public Queue<MidiMessage> History {
+        public Queue<MidiMessage> History
+        {
             get { return _messageHistory; }
         }
-
-        #endif
 
         #endregion
 
@@ -160,9 +163,9 @@ namespace MidiJack
             for (var i = 0; i < 17; i++)
                 _channelArray[i] = new ChannelState();
 
-            #if UNITY_EDITOR
             _messageHistory = new Queue<MidiMessage>();
-            #endif
+#if UNITY_EDITOR
+#endif
         }
 
         #endregion
@@ -174,16 +177,17 @@ namespace MidiJack
             if (Application.isPlaying)
             {
                 var frame = Time.frameCount;
-                if (frame != _lastFrame) {
+                if (frame != _lastFrame)
+                {
                     Update();
                     _lastFrame = frame;
                 }
             }
             else
             {
-                #if UNITY_EDITOR
+#if UNITY_EDITOR
                 if (CheckUpdateInterval()) Update();
-                #endif
+#endif
             }
         }
 
@@ -248,25 +252,25 @@ namespace MidiJack
                         knobDelegate((MidiChannel)channelNumber, message.data1, level);
                 }
 
-                #if UNITY_EDITOR
                 // Record the message.
                 _totalMessageCount++;
                 _messageHistory.Enqueue(message);
-                #endif
+#if UNITY_EDITOR
+#endif
             }
 
-            #if UNITY_EDITOR
             // Truncate the history.
             while (_messageHistory.Count > 8)
                 _messageHistory.Dequeue();
-            #endif
+#if UNITY_EDITOR
+#endif
         }
 
         #endregion
 
         #region Native Plugin Interface
 
-        [DllImport("MidiJackPlugin", EntryPoint="MidiJackDequeueIncomingData")]
+        [DllImport("MidiJackPlugin", EntryPoint = "MidiJackDequeueIncomingData")]
         public static extern ulong DequeueIncomingData();
 
         #endregion
@@ -275,9 +279,12 @@ namespace MidiJack
 
         static MidiDriver _instance;
 
-        public static MidiDriver Instance {
-            get {
-                if (_instance == null) {
+        public static MidiDriver Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
                     _instance = new MidiDriver();
                     if (Application.isPlaying)
                         MidiStateUpdater.CreateGameObject(
