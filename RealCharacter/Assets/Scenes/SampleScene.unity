@@ -3496,6 +3496,7 @@ GameObject:
   - component: {fileID: 977099807}
   - component: {fileID: 977099813}
   - component: {fileID: 977099810}
+  - component: {fileID: 977099814}
   - component: {fileID: 977099806}
   - component: {fileID: 977099811}
   - component: {fileID: 977099812}
@@ -3787,6 +3788,20 @@ MonoBehaviour:
   CCValue: 48
   startingValue: 0
   pollingSpeed: 12.5
+--- !u!114 &977099814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977099805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535874f330eaab44f8d4cdb5e66a940f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  streamer: {fileID: 1628087818}
+  cutoffVolume: 0.1
 --- !u!1 &1008160991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,7 +5503,7 @@ GameObject:
   - component: {fileID: 1628087819}
   - component: {fileID: 1628087818}
   m_Layer: 0
-  m_Name: Microphone Input
+  m_Name: Microphone Streamer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
