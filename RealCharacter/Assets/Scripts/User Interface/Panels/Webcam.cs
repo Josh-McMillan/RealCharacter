@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(RawImage), typeof(AspectRatioFitter))]
 public class Webcam : MonoBehaviour
 {
-    private int selectedCamera = 0;
+    public static WebCamDevice[] devices = null;
 
-    private WebCamDevice[] devices = null;
+    [SerializeField] private WebcamUpdateHandler updateHandler;
+
+    private bool hasInitialized = false;
+
+    private int selectedCamera = 0;
 
     private RawImage picture = null;
 
@@ -15,25 +20,35 @@ public class Webcam : MonoBehaviour
 
     private WebCamTexture currentCamera = null;
 
-    [SerializeField] private Dropdown cameraSelection = null;
-
     private void Start()
     {
         picture = GetComponent<RawImage>();
         arf = GetComponent<AspectRatioFitter>();
+    }
 
-        devices = WebCamTexture.devices;
+    private void OnEnable()
+    {
+        if (hasInitialized)
+        {
+            updateHandler.OnCameraUpdate += SetCamera;
+            SetCamera(updateHandler.GetCurrentCamera());
+        }
+        else
+        {
+            hasInitialized = true;
+        }
+    }
 
-        LoadCameras();
-
-        SetCamera(selectedCamera);
+    private void OnDisable()
+    {
+        updateHandler.OnCameraUpdate -= SetCamera;
     }
 
     private void Update()
     {
         while (currentCamera.width < 100)
         {
-            Debug.Log("Waiting for accurate picture information...");
+            // Debug.Log("Waiting for accurate picture information...");
             return;
         }
 
@@ -41,21 +56,12 @@ public class Webcam : MonoBehaviour
         arf.aspectRatio = videoRatio;
     }
 
-    private void LoadCameras()
-    {
-        List<string> cameraOptions = new List<string>();
-
-        for (int i = 0; i < devices.Length; i++)
-        {
-            Debug.Log("Webcam available: " + devices[i].name);
-            cameraOptions.Add(i + " | " + devices[i].name);
-        }
-
-        cameraSelection.AddOptions(cameraOptions);
-    }
-
     public void SetCamera(int cameraIndex)
     {
+        devices = WebCamTexture.devices;
+
+        Console.UpdateLog("Switching camera to " + devices[cameraIndex].name);
+
         if (cameraIndex <= devices.Length)
         {
             if (currentCamera != null && currentCamera.isPlaying)
@@ -64,7 +70,14 @@ public class Webcam : MonoBehaviour
             }
 
             currentCamera = new WebCamTexture(devices[cameraIndex].name);
-            picture.material.mainTexture = currentCamera;
+
+            if (picture != null)
+            {
+                picture.material.mainTexture = currentCamera;
+
+                picture.enabled = false;
+                picture.enabled = true;
+            }
 
             currentCamera.Play();
         }

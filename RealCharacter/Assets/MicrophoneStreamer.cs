@@ -11,6 +11,10 @@ public class MicrophoneStreamer : MonoBehaviour
 
     public AudioSource audioSource;
 
+    private float outputMultiplier = 50.0f;
+
+    private int maxTime = 5;
+
     private void Start()
     {
         currentMicrophone = Microphone.devices[0];
@@ -52,23 +56,23 @@ public class MicrophoneStreamer : MonoBehaviour
 
     private void UpdateMicrophone()
     {
-        audioSource.clip = Microphone.Start(currentMicrophone, true, 10, AudioSettings.outputSampleRate);
+        audioSource.clip = Microphone.Start(currentMicrophone, true, maxTime, 44100);
 
-        Debug.Log("Microphone " + currentMicrophone + " has activated: " + Microphone.IsRecording(currentMicrophone).ToString());
+        Console.UpdateLog(currentMicrophone + " has activated: " + Microphone.IsRecording(currentMicrophone).ToString());
 
         if (Microphone.IsRecording(currentMicrophone))
         {
             while (!(Microphone.GetPosition(currentMicrophone) > 0))
             {
-                Debug.Log("Waiting for connection to " + currentMicrophone);
+                // Debug.Log("Waiting for connection to " + currentMicrophone);
             }
 
-            Debug.Log("Recording has started with " + currentMicrophone);
+            Console.UpdateLog("Recording has started with " + currentMicrophone);
             audioSource.Play();
         }
         else
         {
-            Debug.LogWarning("Microphone " + currentMicrophone + " did not start recording!");
+            Debug.LogWarning(currentMicrophone + " did not start recording!");
         }
     }
 
@@ -87,6 +91,8 @@ public class MicrophoneStreamer : MonoBehaviour
             }
         }
 
-        return levelMax;
+        Debug.Log("MAX VOLUME IS: " + levelMax * outputMultiplier);
+
+        return levelMax * outputMultiplier;
     }
 }

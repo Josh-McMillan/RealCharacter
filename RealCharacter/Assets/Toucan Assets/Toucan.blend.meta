@@ -33,6 +33,33 @@ ModelImporter:
     100054: ToucanRig
     100056: UpperLeg_L
     100058: UpperLeg_R
+    100060: BackClaw.L
+    100062: BackClaw.L_end
+    100064: BackClaw.R
+    100066: BackClaw.R_end
+    100068: BackTalon.L
+    100070: BackTalon.R
+    100072: Chest_end
+    100074: FrontClaw.L
+    100076: FrontClaw.L_end
+    100078: FrontClaw.R
+    100080: FrontClaw.R_end
+    100082: FrontTalon.L
+    100084: FrontTalon.R
+    100086: IK_Joint.L
+    100088: IK_Joint.L_end
+    100090: IK_Joint.R
+    100092: IK_Joint.R_end
+    100094: IK_Target.L
+    100096: IK_Target.L_end
+    100098: IK_Target.R
+    100100: IK_Target.R_end
+    100102: LowerBeak_end
+    100104: LowerLeg.L
+    100106: LowerLeg.R
+    100108: Tailbone3_end
+    100110: UpperLeg.L
+    100112: UpperLeg.R
     400000: BackClaw_L
     400002: BackClaw_R
     400004: BackTalon_L
@@ -63,7 +90,35 @@ ModelImporter:
     400054: ToucanRig
     400056: UpperLeg_L
     400058: UpperLeg_R
+    400060: BackClaw.L
+    400062: BackClaw.L_end
+    400064: BackClaw.R
+    400066: BackClaw.R_end
+    400068: BackTalon.L
+    400070: BackTalon.R
+    400072: Chest_end
+    400074: FrontClaw.L
+    400076: FrontClaw.L_end
+    400078: FrontClaw.R
+    400080: FrontClaw.R_end
+    400082: FrontTalon.L
+    400084: FrontTalon.R
+    400086: IK_Joint.L
+    400088: IK_Joint.L_end
+    400090: IK_Joint.R
+    400092: IK_Joint.R_end
+    400094: IK_Target.L
+    400096: IK_Target.L_end
+    400098: IK_Target.R
+    400100: IK_Target.R_end
+    400102: LowerBeak_end
+    400104: LowerLeg.L
+    400106: LowerLeg.R
+    400108: Tailbone3_end
+    400110: UpperLeg.L
+    400112: UpperLeg.R
     2100000: TocoToucan_Material__TocoToucan_Albedo_png
+    2100002: TocoToucan_Material
     4300000: TocoToucan
     7400000: Default Take
     9500000: //RootNode

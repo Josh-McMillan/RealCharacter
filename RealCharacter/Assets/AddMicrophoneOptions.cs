@@ -7,9 +7,14 @@ public class AddMicrophoneOptions : MonoBehaviour
 {
     private Dropdown microphoneOptions = null;
 
-    private void Start()
+    private void OnEnable()
     {
         microphoneOptions = GetComponent<Dropdown>();
+
+        if (microphoneOptions.options.Count > 0)
+        {
+            microphoneOptions.ClearOptions();
+        }
 
         List<string> micOptions = new List<string>();
 

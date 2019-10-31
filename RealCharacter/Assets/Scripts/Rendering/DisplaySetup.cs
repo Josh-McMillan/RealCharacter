@@ -6,7 +6,7 @@ public class DisplaySetup : MonoBehaviour
 {
     private void Start()
     {
-        Debug.Log("Connected Displays: " + Display.displays.Length);
+        Console.UpdateLog("Connected Displays: " + Display.displays.Length);
 
         // Display.displays[0] is primary, always on!
         // Check and activate for render output:
