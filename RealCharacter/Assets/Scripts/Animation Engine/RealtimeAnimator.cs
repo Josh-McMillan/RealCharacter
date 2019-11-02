@@ -105,13 +105,13 @@ public class RealtimeAnimator : MonoBehaviour
         switch (axis)
         {
             case Axis.X:
-                return new Vector3(animationControl.Evaluate(driverValue), transform.position.y, transform.position.z);
+                return new Vector3(animationControl.Evaluate(driverValue), transform.localPosition.y, transform.localPosition.z);
 
             case Axis.Y:
-                return new Vector3(transform.position.x, animationControl.Evaluate(driverValue), transform.position.z);
+                return new Vector3(transform.localPosition.x, animationControl.Evaluate(driverValue), transform.localPosition.z);
 
             case Axis.Z:
-                return new Vector3(transform.position.x, transform.position.y, animationControl.Evaluate(driverValue));
+                return new Vector3(transform.localPosition.x, transform.localPosition.y, animationControl.Evaluate(driverValue));
         }
 
         Debug.LogWarning("WARNING: " + gameObject.name + "\'s RealtimeAnimator could not set driver vector!");
@@ -125,13 +125,13 @@ public class RealtimeAnimator : MonoBehaviour
         switch (axis)
         {
             case Axis.X:
-                return new Vector3(animationControl.Evaluate(driverValue), 0.0f, 0.0f);
+                return new Vector3(animationControl.Evaluate(driverValue), transform.localEulerAngles.y, transform.localEulerAngles.z);
 
             case Axis.Y:
-                return new Vector3(0.0f, animationControl.Evaluate(driverValue), 0.0f);
+                return new Vector3(transform.localEulerAngles.x, animationControl.Evaluate(driverValue), transform.localEulerAngles.z);
 
             case Axis.Z:
-                return new Vector3(0.0f, 0.0f, animationControl.Evaluate(driverValue));
+                return new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, animationControl.Evaluate(driverValue));
         }
 
         Debug.LogWarning("WARNING: " + gameObject.name + "\'s RealtimeAnimator could not set driver vector!");
